@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
                 <div className="home-page-middle-section">
                     <div className="home-page-middle-section-first-line">
                         <Text type="heading-midsize-bold" tagname='span'>Page title</Text>
-                        <Button id="info-icon-button" variant="tertiary" size={20} prefixIcon="info-badge-filled" aria-label="info icon button"></Button>
+                        <Button id="info-icon-button" variant="tertiary" size={20} prefixIcon="info-circle-regular" aria-label="info icon button"></Button>
                         <ToggleTip triggerID='info-icon-button' placement='bottom'>
                             This is a description about the page title.
                         </ToggleTip>

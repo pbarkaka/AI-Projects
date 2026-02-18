@@ -4,6 +4,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-attachment: fixed;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -12,10 +13,11 @@ body {
   place-items: left;
   min-width: 320px;
   min-height: 100vh;
+  font-family: inherit;
 }
 
 .main-layout {
   display: flex;
   width: 100%;
-  height: calc(100% - 4rem);
+  min-height: 0;
 }

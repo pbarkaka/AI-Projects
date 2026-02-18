@@ -1,0 +1,289 @@
+/* LIS page: dark mode, scrollable, Inter font, visible tabs, card outline */
+
+.lis-page {
+  --lis-padding: 1.5rem;
+  font-family: inherit;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(--mds-color-theme-background-solid-primary-normal, #0d0d0d);
+  padding: var(--lis-padding);
+  color: var(--mds-color-theme-text-primary-normal, #ffffff);
+  box-sizing: border-box;
+}
+
+/* Secondary tabs (line variant): dark mode overrides so they stay visible */
+.lis-secondary-tabs {
+  --mdc-tab-line-inactive-color: rgba(255, 255, 255, 0.7);
+  --mdc-tab-line-active-color: #ffffff;
+  --mdc-tab-line-active-indicator-color: var(--mds-color-theme-outline-input-active, #1170cf);
+  --mdc-tab-line-inactive-background-color-normal: transparent;
+  --mdc-tab-line-active-background-color-normal: rgba(255, 255, 255, 0.12);
+  --mdc-tab-line-inactive-background-color-hover: rgba(255, 255, 255, 0.08);
+  --mdc-tab-line-active-background-color-hover: rgba(255, 255, 255, 0.16);
+}
+
+/* mdc-card: theme-driven background; light mode overrides below */
+.lis-page mdc-card {
+  box-sizing: border-box;
+  background-color: var(--mds-color-theme-background-solid-secondary, #2d2d2d);
+}
+
+/* Light mode: page and card background, card outline black 20% opacity */
+.mds-theme-stable-lightWebex .lis-page,
+[class*="light"] .lis-page {
+  background-color: #f2f4f5;
+}
+
+.mds-theme-stable-lightWebex .lis-page mdc-card,
+[class*="light"] .lis-page mdc-card {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.lis-page-header {
+  margin-bottom: 1rem;
+}
+
+.lis-page-title {
+  margin: 0;
+}
+
+/* Wrapper for primary tabs + arrow */
+.lis-primary-tabs-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2.5rem;
+  margin-bottom: 0.5rem;
+  gap: 0.25rem;
+}
+
+.lis-primary-tabs-wrapper .lis-primary-tabs {
+  flex: 1;
+  min-width: 0;
+}
+
+.lis-primary-tabs,
+.lis-secondary-tabs {
+  display: block;
+  width: 100%;
+  min-height: 2.5rem;
+}
+
+.lis-secondary-tabs {
+  margin-bottom: 1.5rem;
+}
+
+.lis-page mdc-tablist mdc-tab {
+  min-height: 2rem;
+  flex-shrink: 0;
+}
+
+.lis-tab-arrow {
+  flex-shrink: 0;
+  margin-left: 0.25rem;
+}
+
+.lis-description {
+  margin-bottom: 2rem;
+  color: var(--mds-color-theme-text-secondary-normal, rgba(255, 255, 255, 0.8));
+}
+
+.lis-description p {
+  margin: 0 0 0.5rem 0;
+}
+
+.lis-learn-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.lis-link-icon {
+  font-size: 0.875em;
+}
+
+.lis-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+}
+
+/* Addresses card: 100% width per layout; Momentum card uses --mdc-card-width */
+.lis-card-addresses {
+  width: 100%;
+}
+
+/* Addresses card: match design exactly (white card, 150, colored bars, separator, Manage) */
+.lis-addresses-card {
+  width: 100%;
+  --mdc-card-width: 100%;
+}
+
+/* Card header: keep title and info icon on one line, icon directly next to title */
+.lis-page mdc-card::part(header) {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.lis-page mdc-card::part(title-container) {
+  flex: 0 1 auto;
+}
+
+/* Card titles: 16px, font weight medium */
+.lis-page mdc-card::part(title) {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.lis-page mdc-card::part(icon-button) {
+  margin-left: 0;
+  flex: 0 0 auto;
+}
+
+.lis-addresses-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 0.5rem 0;
+}
+
+.lis-addresses-value {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #222222;
+}
+
+.lis-addresses-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.lis-addresses-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 1.5rem;
+}
+
+.lis-addresses-swatch {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+}
+
+.lis-addresses-swatch-with {
+  background-color: #8fc0e9;
+}
+
+.lis-addresses-swatch-without {
+  background-color: #006dcc;
+}
+
+.lis-addresses-label {
+  flex-shrink: 0;
+  font-size: 0.875rem;
+  color: #222222;
+}
+
+.lis-addresses-bar-track {
+  flex: 1;
+  min-width: 4rem;
+  height: 0.5rem;
+  background-color: #e8e8e8;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.lis-addresses-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  min-width: 2px;
+  transition: width 0.2s ease;
+}
+
+.lis-addresses-bar-with {
+  background-color: #8fc0e9;
+}
+
+.lis-addresses-bar-without {
+  background-color: #006dcc;
+}
+
+.lis-addresses-separator {
+  margin-top: 0.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Addresses card: light theme (white card, shadow, grey info icon, outline Manage button) */
+.mds-theme-stable-lightWebex .lis-addresses-card,
+[class*="light"] .lis-addresses-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Manage button: outline style (grey border, transparent bg, black text) - light theme */
+.mds-theme-stable-lightWebex .lis-addresses-card .lis-addresses-manage-btn,
+[class*="light"] .lis-addresses-card .lis-addresses-manage-btn {
+  --mds-color-theme-button-secondary-normal: transparent;
+  --mds-color-theme-outline-primary-normal: #888888;
+  color: #222222;
+}
+
+/* Dark theme: keep text visible on dark card */
+.mds-theme-stable-darkWebex .lis-addresses-value,
+[class*="dark"] .lis-addresses-value {
+  color: var(--mds-color-theme-text-primary-normal, #ffffff);
+}
+
+.mds-theme-stable-darkWebex .lis-addresses-label,
+[class*="dark"] .lis-addresses-label {
+  color: var(--mds-color-theme-text-primary-normal, #ffffff);
+}
+
+.mds-theme-stable-darkWebex .lis-addresses-separator,
+[class*="dark"] .lis-addresses-separator {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
+
+.lis-card-value {
+  display: block;
+}
+
+/* Grid: min 20rem per column to match mdc-card vertical min-width and prevent overlap on resize */
+.lis-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
+  align-items: start;
+  width: 100%;
+}
+
+.lis-card-grid > mdc-card {
+  width: 100%;
+  max-width: 100%;
+  --mdc-card-width: 100%;
+  justify-self: stretch;
+}
+
+.lis-data-card-body {
+  padding: 0.5rem 0;
+}
+
+.lis-data-card-body .lis-card-value {
+  display: block;
+}
+
+.lis-card-info-wrapper {
+  display: inline-flex;
+  align-items: center;
+}

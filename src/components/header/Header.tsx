@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = ({setIsSideNavExpanded, theme, setTheme}: 
       <Appheader className="header">
         <div slot="leading" className="leadingSlot">
           <Button variant="tertiary" size={32} prefixIcon="list-menu-bold" aria-label="icon button" onClick={handleSideNavToggle}></Button>
-          <Brandvisual name={`momentum-design-logo-${theme}-bw-horizontal`} className='brandLogo'></Brandvisual>
+          <Brandvisual name={`webex-logo-lockup-${theme}-bw-gradient-horizontal`} className='brandLogo'></Brandvisual>
         </div>
         <div slot="center">
           <Searchfield className="searchfield" placeholder='Search'></Searchfield>
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({setIsSideNavExpanded, theme, setTheme}: 
           <Button variant="tertiary" size={32} prefixIcon="help-circle-bold" aria-label="help icon button"></Button>
           <div className="badgeButtonWrapper">
             <Button variant="tertiary" size={32} prefixIcon="alert-bold" aria-label="alert icon button"></Button>
-            <Badge counter={1} className="badge" aria-label="1 new notification" type='counter'></Badge>
+            <Badge counter={6} className="badge" aria-label="6 new notifications" type='counter'></Badge>
           </div>
           <Divider orientation='vertical' variant='gradient'></Divider>
           <Button variant="tertiary" size={32} prefixIcon="waffle-menu-bold" aria-label="waffle icon button"></Button>

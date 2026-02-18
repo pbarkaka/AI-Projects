@@ -1,4 +1,42 @@
+/* Side navigation: library-aligned with theme tokens (light and dark) */
 .sidenav {
-    flex-shrink: 0;
-    --mdc-sidenavigation-vertical-divider-button-z-index: 2000;
+  flex-shrink: 0;
+  --mdc-sidenavigation-vertical-divider-button-z-index: 2000;
+  background-color: var(--mds-color-theme-background-solid-secondary-normal);
+  color: var(--mds-color-theme-text-primary-normal);
+}
+
+.sidenav::part(side-navigation-container) {
+  background-color: var(--mds-color-theme-background-solid-secondary-normal);
+  color: var(--mds-color-theme-text-primary-normal);
+}
+
+.sidenav::part(scrollable-section),
+.sidenav::part(fixed-section),
+.sidenav::part(brand-logo-container) {
+  background-color: transparent;
+}
+
+.sidenav::part(separator) {
+  border-color: var(--mds-color-theme-outline-primary-normal);
+}
+
+.sidenav::part(vertical-divider) {
+  border-color: var(--mds-color-theme-outline-primary-normal);
+}
+
+/* Section header text (MONITORING, MANAGEMENT, etc.): 10px, bold */
+.sidenav mdc-menusection::part(header) {
+  font-size: 10px;
+  font-weight: bold;
+  /* Override tokens so mdc-text inside shadow DOM uses 10px bold */
+  --mds-font-apps-body-midsize-bold-font-size: 10px;
+  --mds-font-apps-body-midsize-bold-font-weight: 700;
+}
+
+/* Left nav menu item icons: 14px × 14px */
+.sidenav mdc-navmenuitem::part(icon) {
+  --mdc-icon-size: 14px;
+  width: 14px;
+  height: 14px;
 }

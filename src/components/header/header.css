@@ -1,40 +1,104 @@
+/* App header: library-aligned. Dark theme = secondary surface; light theme = black (inverted) per library */
 .header {
-    height: 4rem;
+  height: var(--mdc-appheader-height, 4rem);
+  flex-shrink: 0;
+  background-color: var(--mds-color-theme-background-solid-secondary-normal);
+  color: var(--mds-color-theme-text-primary-normal);
+  border-bottom: 1px solid var(--mds-color-theme-outline-primary-normal);
+}
+
+.header::part(container) {
+  background-color: var(--mds-color-theme-background-solid-secondary-normal);
+  color: var(--mds-color-theme-text-primary-normal);
+  border-bottom: none;
+}
+
+/* Light theme: header uses same colors as dark mode so both look identical */
+.mds-theme-stable-lightWebex .header,
+[class*="light"] .header {
+  /* Header background #0F0F0F, white text, same border */
+  background-color: #0f0f0f;
+  color: #fffffff2;
+  border-bottom-color: #ffffff66;
+  /* Cascade dark-header theme so inner elements match dark mode (light icons, search, dividers) */
+  --mds-color-theme-text-primary-normal: #fffffff2;
+  --mds-color-theme-text-primary-disabled: #ffffff66;
+  --mds-color-theme-text-secondary-normal: #ffffffb3;
+  --mds-color-theme-outline-primary-normal: #ffffff66;
+  --mds-color-theme-outline-button-normal: #ffffff80;
+  --mds-color-theme-outline-input-normal: #ffffff80;
+  --mds-color-theme-outline-input-active: #64b4fa;
+  --mds-color-theme-button-secondary-hover: rgba(255, 255, 255, 0.12);
+  --mds-color-theme-button-secondary-pressed: rgba(255, 255, 255, 0.2);
+  --mds-color-theme-button-secondary-active-normal: rgba(255, 255, 255, 0.12);
+  --mds-color-theme-button-secondary-active-hover: rgba(255, 255, 255, 0.18);
+  --mds-color-theme-button-secondary-active-pressed: rgba(255, 255, 255, 0.2);
+  --mds-color-theme-outline-secondary-normal: #ffffff66;
+  --mds-color-theme-gradientdivider-vertical-normal: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 22.4%, rgba(255, 255, 255, 0.4) 72.4%, rgba(255, 255, 255, 0) 100%);
+  --mds-color-theme-gradientdivider-vertical-hover: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.6) 22.4%, rgba(255, 255, 255, 0.6) 72.4%, rgba(255, 255, 255, 0) 100%);
+}
+
+.mds-theme-stable-lightWebex .header::part(container),
+[class*="light"] .header::part(container) {
+  background-color: #0f0f0f;
+  color: #fffffff2;
+}
+
+/* Search bar in light header: background #3B3B3B */
+.mds-theme-stable-lightWebex .header .searchfield,
+.mds-theme-stable-lightWebex .header mdc-searchfield,
+[class*="light"] .header .searchfield,
+[class*="light"] .header mdc-searchfield {
+  --mds-color-theme-background-primary-ghost: #3b3b3b;
+  --mds-color-theme-background-primary-hover: rgba(255, 255, 255, 0.18);
+  --mds-color-theme-background-primary-active: rgba(255, 255, 255, 0.24);
+}
+
+/* .input-container in light mode header: background #3B3B3B */
+.mds-theme-stable-lightWebex .header mdc-searchfield::part(input-container),
+[class*="light"] .header mdc-searchfield::part(input-container) {
+  background-color: #3b3b3b;
 }
 
 .leadingSlot {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .brandLogo {
-    height: 2rem;
-    width: auto;
+  height: 2rem;
+  width: auto;
+}
+
+/* Light mode header: logo is black by default; force white on black header */
+.mds-theme-stable-lightWebex .header .brandLogo,
+[class*="light"] .header .brandLogo {
+  filter: brightness(0) invert(1);
 }
 
 .assistantButton {
-    aspect-ratio: 1 / 1;
-    padding: 0 0.3125rem;
+  aspect-ratio: 1 / 1;
+  padding: 0 0.3125rem;
 }
 
 .trailingSlot {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .searchfield {
-    width: 24.5rem;
+  width: 24.5rem;
 }
 
 .badgeButtonWrapper {
-    position: relative;
-    display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .badge {
-    position: absolute;
-    top: -4px;
-    right: -4px;
+  position: absolute;
+  top: -4px;
+  right: -4px;
 }

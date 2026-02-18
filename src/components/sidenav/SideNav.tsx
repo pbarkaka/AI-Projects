@@ -1,55 +1,65 @@
-import React, { useCallback } from 'react'
-import { SideNavigation, MenuSection, NavMenuItem, Icon } from '@momentum-design/components/react'
+import React, { useCallback } from 'react';
+import { SideNavigation, MenuSection, NavMenuItem, Icon } from '@momentum-design/components/react';
 import './sidenav.css';
 
 interface SideNavProps {
-    isSideNavExpanded: boolean;
-    setIsSideNavExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+  isSideNavExpanded: boolean;
+  setIsSideNavExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const SideNav: React.FC<SideNavProps> = ({ isSideNavExpanded, setIsSideNavExpanded }: SideNavProps) => {
+  const handleSideNavToggle = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (e: any) => {
+      const newToggleState = e.detail.expanded;
+      setIsSideNavExpanded(newToggleState);
+    },
+    [setIsSideNavExpanded]
+  );
 
-    const handleSideNavToggle = useCallback(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (e: any) => {
-            const newToggleState = e.detail.expanded;
-            setIsSideNavExpanded(newToggleState);
-        }, [setIsSideNavExpanded],
-    );
-
-    return (
-        <>
-            <SideNavigation expanded={isSideNavExpanded} onToggle={handleSideNavToggle} variant="flexible" footerText="Customer Name" grabberBtnAriaLabel="Toggle Side navigation" parentNavTooltipText="Contains active navmenuitem" className="sidenav">
-                <MenuSection slot="scrollable-menubar" showDivider>
-                    <NavMenuItem iconName="placeholder-regular" navId="1" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="2" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="3" label="Label"></NavMenuItem>
-                </MenuSection>
-                <MenuSection slot="scrollable-menubar" showDivider headerText="Section name">
-                    <NavMenuItem iconName="placeholder-regular" navId="6" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="7" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="8" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="9" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="10" label="Label"></NavMenuItem>
-                </MenuSection>
-                <MenuSection slot="scrollable-menubar" headerText="Section name">
-                    <NavMenuItem iconName="placeholder-regular" navId="11" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="12" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="13" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="14" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="15" label="Label"></NavMenuItem>
-                </MenuSection>
-                <MenuSection slot="fixed-menubar" >
-                    <NavMenuItem iconName="placeholder-regular" navId="21" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="22" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="23" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="24" label="Label"></NavMenuItem>
-                    <NavMenuItem iconName="placeholder-regular" navId="25" label="Label"></NavMenuItem>
-                </MenuSection>
-                <Icon slot="brand-logo" name="apple-bold"></Icon>
-            </SideNavigation>
-        </>
-    );
+  return (
+    <SideNavigation
+      expanded={isSideNavExpanded}
+      onToggle={handleSideNavToggle}
+      variant="flexible"
+      footerText="Customer Name"
+      grabberBtnAriaLabel="Toggle Side navigation"
+      parentNavTooltipText="Contains active navmenuitem"
+      className="sidenav"
+    >
+      <MenuSection slot="scrollable-menubar" showDivider>
+        <NavMenuItem iconName="home-bold" navId="overview" label="Overview" />
+        <NavMenuItem iconName="alert-bold" navId="alerts-center" label="Alerts center" />
+      </MenuSection>
+      <MenuSection slot="scrollable-menubar" showDivider headerText="MONITORING">
+        <NavMenuItem iconName="analysis-bold" navId="analytics" label="Analytics" />
+        <NavMenuItem iconName="multiline-chart-bold" navId="troubleshooting" label="Troubleshooting" />
+        <NavMenuItem iconName="document-bold" navId="reports" label="Reports" />
+      </MenuSection>
+      <MenuSection slot="scrollable-menubar" showDivider headerText="MANAGEMENT">
+        <NavMenuItem iconName="user-bold" navId="users" label="Users" />
+        <NavMenuItem iconName="create-a-group-bold" navId="groups" label="Groups" />
+        <NavMenuItem iconName="location-bold" navId="locations" label="Locations" />
+        <NavMenuItem iconName="meetings-team-bold" navId="workspaces" label="Workspaces" />
+        <NavMenuItem iconName="generic-device-video-bold" navId="devices" label="Devices" />
+        <NavMenuItem iconName="format-default-app-bold" navId="apps" label="Apps" />
+        <NavMenuItem iconName="company-bold" navId="account" label="Account" />
+        <NavMenuItem iconName="settings-bold" navId="org-settings" label="Organization settings" />
+      </MenuSection>
+      <MenuSection slot="scrollable-menubar" headerText="SERVICES">
+        <NavMenuItem iconName="chat-bold" navId="messaging" label="Messaging" />
+        <NavMenuItem iconName="calendar-month-bold" navId="meetings" label="Meetings" />
+        <NavMenuItem iconName="phone-bold" navId="calling" label="Calling" active />
+        <NavMenuItem iconName="intelligent-routing-bold" navId="pstn-routing" label="PSTN & Routing" />
+        <NavMenuItem iconName="people-bold" navId="customer-experience" label="Customer Experience" />
+        <NavMenuItem iconName="headset-bold" navId="contact-center" label="Contact Center" />
+        <NavMenuItem iconName="view-stacked-bold" navId="connected-uc" label="Connected UC" />
+        <NavMenuItem iconName="cloud-frame-bold" navId="ucm-cloud" label="UCM Cloud" />
+        <NavMenuItem iconName="cloud-bold" navId="hybrid" label="Hybrid" />
+      </MenuSection>
+      <Icon slot="brand-logo" name="company-bold" />
+    </SideNavigation>
+  );
 };
 
 export default SideNav;

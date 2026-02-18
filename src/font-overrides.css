@@ -1,0 +1,51 @@
+/**
+ * Override all font-family usage to Inter strictly.
+ * Import after @momentum-design/tokens so these win.
+ */
+:root,
+.mds-typography {
+  --mds-font-family-primary: "Inter", sans-serif;
+  --mdc-themeprovider-font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
+}
+
+/* All Momentum typography token font-family variables → Inter only */
+.mds-typography {
+  --mds-font-apps-body-small-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-small-regular-underline-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-small-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-small-medium-underline-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-small-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-midsize-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-midsize-regular-underline-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-midsize-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-midsize-medium-underline-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-midsize-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-large-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-large-regular-underline-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-large-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-large-medium-underline-font-family: "Inter", sans-serif;
+  --mds-font-apps-body-large-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-small-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-small-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-small-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-midsize-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-midsize-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-midsize-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-large-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-large-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-large-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-xlarge-regular-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-xlarge-medium-font-family: "Inter", sans-serif;
+  --mds-font-apps-heading-xlarge-bold-font-family: "Inter", sans-serif;
+  --mds-font-apps-headline-small-light-font-family: "Inter", sans-serif;
+  --mds-font-apps-headline-small-regular-font-family: "Inter", sans-serif;
+}
+
+body,
+input,
+textarea,
+button,
+select {
+  font-family: "Inter", sans-serif;
+}
