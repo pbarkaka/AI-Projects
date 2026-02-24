@@ -34,6 +34,26 @@
   --mds-font-apps-body-midsize-bold-font-weight: 700;
 }
 
+/* Left nav menu item: no border radius, full-width highlight, active bar on the right */
+.sidenav mdc-navmenuitem {
+  border-radius: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.sidenav mdc-navmenuitem::before {
+  border-radius: 0;
+  left: 0;
+  right: auto;
+  width: 0.25rem;
+  height: 100%;
+}
+
+[dir="rtl"] .sidenav mdc-navmenuitem::before {
+  left: auto;
+  right: 0;
+}
+
 /* Left nav menu item icons: 14px × 14px */
 .sidenav mdc-navmenuitem::part(icon) {
   --mdc-icon-size: 14px;
